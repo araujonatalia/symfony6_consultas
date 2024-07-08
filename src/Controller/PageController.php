@@ -17,20 +17,19 @@ class PageController extends AbstractController
     public function home(EntityManagerInterface $entityManager): Response
     {
         return $this->render('page/home.html.twig', [
-            'product' => $entityManager->getRepository(Product::class)->findAll()
+            'products' => $entityManager->getRepository(Product::class)->findAll()
         ]);
     }
 
-    #[Route('/etiqueta{id}', name: 'app_tag')]
+    #[Route('/etiqueta/{id}', name: 'app_tag')]
     public function tag(Tag $tag): Response
     {
         return $this->render('page/tag.html.twig', [
             'tag' => $tag,
-          //  'products' => $tag->getProducts()
+            //'products' => $tag->getProducts()
         ]);
     }
-
-    #[Route('/producto{id}', name: 'app_product')]
+    #[Route('/producto/{id}', name: 'app_product')]
     public function product(Product $product): Response
     {
         return $this->render('page/product.html.twig', [
@@ -46,6 +45,10 @@ class PageController extends AbstractController
             'comments' => $entityManager->getRepository(Comment::class)->findAll(),
           //  'products' => $tag->getProducts()
         ]);
+    }
+
+    public function findLatest (){
+       // dd('llegamos al metodo');
     }
 
 }
