@@ -1,5 +1,5 @@
 <p class="text-muted">
-    {{ product.comment|length }} Comentarios
+    {{ product.comments|length }} Comentarios
     |
     {% for tag in product.tags %}
         <a 
@@ -12,5 +12,5 @@
         >
             {{ tag.name }}
         </a>
-    {% endfor %}
+        {% endfor %}
 </p>
