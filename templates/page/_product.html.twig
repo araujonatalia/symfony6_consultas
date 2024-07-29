@@ -1,14 +1,16 @@
 <div class="mb-4">
-    {% for product in product %}
-        <h2>
-            <a href"#" class="text-dark text_decoration-none">
-                {{ product.name}}
-            </a>
-        </h2>
-        <p>
-            {{ product.summary}}
-        </p>
-        {{ include('page/_info.html.twig') }}
-    {% endfor %}
+    <h2>
+        <a 
+            href="{{ path('app_product', { id: product.id }) }}" 
+            class="text-dark text-decoration-none"
+        >
+        
+            {{ product.name }}
+        </a>
+    </h2>
+    <p>
+      {{ product.summary }}
+    </p>
+
+    {{ include('page/_info.html.twig') }}
 </div>
-  
